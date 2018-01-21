@@ -114,7 +114,6 @@ unique(vector1)
 vector5=c(1,1,2,3,4)
 unique(vector5)
 
-
 #Simpligying vector creation
 1:10
 1:100
@@ -142,7 +141,6 @@ X <- 1:500
 Multiple7 <- subset(X, X%%7==0)
 Multiple7
 sample ( Multiple7 , size = 10 , replace = FALSE )
-
 
 #print, cat, paste functions
 x<-0.2
@@ -179,3 +177,94 @@ load("/home/tsveti/Documents/1_PS/1probstat/R/R-Course/RCourse.RData")
 ls()
 
 #4.2 Creating Matrices
+
+M=matrix(data=c(1,2,3,1,5,0,0,1,100), nrow=3, ncol=3)
+dim(M)
+
+#examples
+Vector8 <- 1:12
+Vector8
+Matrix3 <- matrix ( data = Vector8 , nrow = 4)
+Matrix3 # by default the matrix will be populated by column
+Matrix4 <- matrix ( data = Vector8 , nrow = 4 , byrow = TRUE )
+Matrix4 # now we populated it by row
+
+#creating matrices by using rbind() and cbind() functions:
+Vector9 <- 1:10
+Vector9
+Vector10 <- Vector9 ^ 2
+Vector10
+Matrix5 <- rbind(Vector9, Vector10)
+Matrix5
+dim(Matrix5)
+
+Matrix6 = cbind(Vector9, Vector10, Vector9)
+dim(Matrix6)
+Matrix6
+colnames(Matrix6)
+rownames(Matrix6)
+#Let's set row names and column names:
+colnames(Matrix6) = c("A", "B", "C")
+rownames(Matrix6) = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "potato")
+Matrix6    
+
+IdMat = diag(4) #an identity matrix
+IdMat
+
+v1=c(1,2,3); M8 = diag(v1) #v1 across the diagonal
+M8
+
+diag(IdMat)  #extracts the diagonal from the matrix
+
+#4.2.1 Indexing matrices
+
+M9 = matrix(runif(15, 0, 200), 3, 5)
+M9
+M9[2,5]
+M9[,5] 
+M9[1,]
+M9[,1:3]
+M9[M9[,2] >175, ] # extracts all rows that in their second column contain values greater than four
+M9
+
+
+#4.3 Mathematical Operations
+M10=matrix(rnorm(15, 0, 1), 3, 5)
+M10
+t(M10) #transpose
+M11=matrix(rnorm(15, 0, 1), 3, 3)
+M11
+solve(M11) #inverse
+det(M11)
+eigen(M11) #eigenvalues and eigenvectors (it returns a list containing a vector and a matrix)
+crossprod(M10, M11)
+M10%x%M11 #kronecker product
+
+sum(diag(M11)) #trace
+
+#We can extract named elements from a list with the $ symbol, or with [[ ]].
+eigen.list = eigen(M11)
+names(eigen.list)
+eigen.list$values
+eigen.list$vectors
+
+
+#4.3.2 bonus example
+Constant <- rep (1 , times = 10)
+Variable <- c (1 ,2 ,3 ,1 ,2 ,3 ,5 ,6 ,7 ,8)
+X <- cbind(Constant, Variable)
+X
+Y <- seq(1, 10)
+Y
+Beta.Hats <- solve(t(X)%*%X) %*% t(X)%*%Y
+colnames(Beta.Hats) <- "Estimate"
+Beta.Hats
+
+
+
+#Chapter 5 - Data Frames
+
+
+
+
+
