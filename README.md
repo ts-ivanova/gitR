@@ -9,7 +9,7 @@ with Assist. Prof. A. Tchorbadjieff
 
 
 ******************************************************************
-Lecture notes and exercises on Probability and Statistics in Bulgarian, hand-written: 
+Probability and Statistics lecture notes and exercises in Bulgarian, hand-written: 
 
 https://drive.google.com/open?id=1AFd4HW7FRVzQFynoISoBW_LwJCfYcQuH
 
